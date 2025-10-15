@@ -320,8 +320,8 @@ body {
 }
 
 .card-sobresaliente {
-  margin-top: 30px;
-  width: 380px;
+  margin-top: 10px;
+  width: 360px;
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -329,6 +329,11 @@ body {
   position: relative;
   text-align: center;
   cursor: pointer;
+}
+
+.card-sobresaliente:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
 .card-fondo {
@@ -345,7 +350,7 @@ body {
 }
 
 .card-content {
-  padding: 20px 15px 25px;
+  padding: 15px 12px 20px;
 }
 
 .card-content h3 {
@@ -402,6 +407,12 @@ body {
 @media (max-width: 800px) {
   .tarjetas-grid {
     grid-template-columns: 1fr;
+    gap: 12px; /* menos espacio entre las tarjetas en móvil */
+  }
+
+  .card-sobresaliente {
+    width: 90%;
+    margin-top: 8px;
   }
 }
 
