@@ -1,0 +1,1482 @@
+@import url("https://fonts.googleapis.com/css2?family=Chewy&family=Cinzel+Decorative:wght@400;700;900&family=Luckiest+Guy&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  color: white;
+  background-color: #2e693a;
+}
+
+/* Hero */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 1;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Imagenes del slider */
+.slide:nth-child(1) {
+  background-image: url("img/fondo.jpg");
+}
+.slide:nth-child(2) {
+  background-image: url("img/2fondo.jpg");
+}
+.slide:nth-child(3) {
+  background-image: url("img/3fondo.jpg");
+}
+.slide:nth-child(4) {
+  background-image: url("img/4fondo.png");
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 10px 40px;
+  display: flex;
+  background-color: #ffffffe1;
+  justify-content: space-between;
+  align-items: center;
+  transition: top 0.3s ease;
+  z-index: 1000;
+}
+
+.logo-nav img {
+  height: 70px;
+  width: auto;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-menu li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-menu li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #000000;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.nav-menu li a:hover {
+  color: #000000;
+}
+
+.nav-menu li a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-icon i {
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.nav-menu.show {
+  background-color: #ffffffe1;
+}
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+}
+
+/* Hero Content */
+.hero-content {
+  position: absolute;
+  bottom: 80px;
+  left: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 100;
+}
+
+/* Texto superior */
+.welcome-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: -50px;
+}
+
+.welcome-text {
+  font-size: 38px;
+  margin-left: 8px;
+  margin-bottom: 10px;
+}
+
+.city-line {
+  width: 142px;
+  margin-left: 10px;
+  height: 3px;
+  background-color: white;
+}
+
+/* Nombre de la ciudad */
+.city-name {
+  font-size: 125px;
+  font-weight: 400;
+}
+
+/* Ubicación */
+.location {
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 7px;
+}
+
+.location p {
+  font-size: 22px;
+  margin-left: 10px;
+}
+
+/* 🔹 Ajustes responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .welcome-line {
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .welcome-text {
+    font-size: 24px;
+    margin-top: 300px;
+    margin-left: 0;
+  }
+
+  .city-line {
+    width: 150px;
+    margin: 0 auto;
+  }
+
+  .city-name {
+    font-size: 48px;
+  }
+
+  .location {
+    font-size: 16px;
+    margin-top: 5px;
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .location p {
+    font-size: 16px;
+    margin-left: 5px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+}
+
+/* ================================= */
+/* SECCIÓN RESTAURANTES */
+
+.descubre {
+  padding: 60px 5%;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.descubre-titulo {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+  color: #000000;
+}
+
+.descubre-titulo::after {
+  content: "";
+  width: 250px;
+  height: 4px;
+  background: #337c47;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.descubre-titulo2 {
+  color: #000;
+  font-weight: 400;
+  font-size: 25px;
+}
+.tarjetas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+.card-sobresaliente {
+  margin-top: 30px;
+  width: 380px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: visible;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+
+.card-fondo {
+  position: relative;
+  height: 200px;
+}
+
+.img-fondo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.card-content {
+  padding: 20px 15px 25px;
+}
+
+.card-content h3 {
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: 18px;
+  color: #000;
+  font-family: "Poppins", sans-serif;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #555;
+  text-align: left;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.card-description {
+  color: #595f60;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ecf0f1;
+}
+
+.card-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #f39c12;
+  font-weight: 600;
+}
+
+.card-specialty {
+  color: #27ae60;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 800px) {
+  .tarjetas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================= */
+/* SECCIÓN TURÍSTICA */
+
+.descubre-titulo5 {
+  font-size: 33px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.descubre-titulo5::after {
+  content: "";
+  width: 250px;
+  height: 4px;
+  background: #ffffff;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.descubre-titulo3 {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.tourist-section {
+  padding: 40px 10px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #2e693a;
+}
+
+.tourist-section .section-header {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.tourist-section .section-title {
+  color: white;
+}
+
+.tourist-section .section-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.tourist-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.tourist-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.tourist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Tamaños de cards */
+.tourist-card.large {
+  grid-column: span 12;
+  min-height: 400px;
+}
+
+.tourist-card.medium {
+  grid-column: span 12;
+  min-height: 350px;
+}
+
+.tourist-card.small {
+  grid-column: span 12;
+  min-height: 300px;
+}
+
+@media (min-width: 768px) {
+  .tourist-card.large {
+    grid-column: span 8;
+  }
+
+  .tourist-card.medium {
+    grid-column: span 4;
+  }
+
+  .tourist-card.small {
+    grid-column: span 6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tourist-card.large {
+    grid-column: span 6;
+  }
+
+  .tourist-card.medium {
+    grid-column: span 3;
+  }
+
+  .tourist-card.small {
+    grid-column: span 3;
+  }
+}
+
+.tourist-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tourist-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.tourist-card:hover .tourist-image {
+  transform: scale(1.15);
+}
+
+.tourist-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.4) 70%,
+    transparent 100%
+  );
+  padding: 30px;
+  color: white;
+  transition: all 0.4s ease;
+}
+
+.tourist-card:hover .tourist-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.6) 80%,
+    transparent 100%
+  );
+}
+
+.tourist-category {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tourist-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tourist-card.small .tourist-title {
+  font-size: 1.3rem;
+}
+
+.tourist-desc {
+  font-size: 1rem;
+  opacity: 0.95;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.tourist-btn {
+  background: white;
+  color: #1e5128;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.tourist-card:hover .tourist-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tourist-btn:hover {
+  background: #2d6a4f;
+  color: white;
+  transform: scale(1.05);
+}
+
+.tourist-card.small .tourist-desc {
+  display: none;
+}
+
+/* ================================= */
+/* SECCIÓN ESCUELAS */
+
+.container-school {
+  background-color: white;
+  width: 100%;
+  padding: 40px 30px;
+  margin: 0 auto;
+}
+
+.school-header {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.school-header h2 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  grid-auto-rows: 280px;
+}
+
+.school-card {
+  background: #274830;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Primera card - grande a la izquierda */
+.school-card:nth-child(1) {
+  grid-row: span 2;
+}
+
+/* Segunda card - pequeña arriba centro */
+.school-card:nth-child(2) {
+  grid-column: 2;
+}
+
+/* Tercera card - pequeña abajo centro */
+.school-card:nth-child(3) {
+  grid-column: 2;
+}
+
+/* Cuarta card - grande a la derecha */
+.school-card:nth-child(4) {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.school-card:hover .card-img {
+  transform: scale(1.05);
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(46, 139, 87, 0.85), transparent);
+  color: white;
+  transition: opacity 0.3s ease;
+}
+
+.school-card:hover .card-overlay {
+  opacity: 0;
+}
+
+.card-overlay .card-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: white;
+}
+
+/* Panel de información adicional */
+.info-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  background: #2e693a;
+  backdrop-filter: blur(10px);
+  padding: 0 25px;
+  transition: height 0.4s ease, padding 0.4s ease;
+  overflow: hidden;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.school-card:hover .info-panel {
+  height: 100%;
+  padding: 25px;
+}
+
+.info-panel h4 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.info-item {
+  margin-bottom: 12px;
+}
+
+.info-label {
+  font-size: 0.75rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.info-text {
+  font-size: 0.88rem;
+  color: #000000;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.info-divider {
+  height: 1px;
+  background: #a9b7a3;
+  margin: 12px 0;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 250px;
+    gap: 8px;
+  }
+
+  .school-card:nth-child(1),
+  .school-card:nth-child(4) {
+    grid-row: span 1;
+    grid-column: 1;
+  }
+
+  .school-card:nth-child(2),
+  .school-card:nth-child(3) {
+    grid-column: 1;
+  }
+
+  .school-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .info-panel h4 {
+    font-size: 1rem;
+  }
+
+  .info-text {
+    font-size: 0.82rem;
+  }
+}
+
+/* ================================= */
+/* SECCIÓN HOSPITAL */
+
+.hospital-container {
+  max-width: 1400px;
+  width: 100%;
+  background-color: #2e693a;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin: 0 auto 0rem auto;
+}
+
+.character-section {
+  position: relative;
+}
+
+.character {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.trian {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  z-index: 10;
+}
+
+.trian-top-left {
+  top: 0;
+  left: 0;
+  animation: floatTopLeft 4s ease-in-out infinite;
+  background: #ffffff;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.trian-bottom-right {
+  bottom: 0;
+  right: 0;
+  animation: floatBottomRight 4s ease-in-out infinite;
+  background: #fff;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+@keyframes floatTopLeft {
+  0%, 100% { 
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% { 
+    transform: translate(-10px, -10px) rotate(5deg);
+  }
+}
+
+@keyframes floatBottomRight {
+  0%, 100% { 
+    transform: translate(0, 0) rotate(180deg);
+  }
+  50% { 
+    transform: translate(10px, 10px) rotate(185deg);
+  }
+}
+
+.image-frame {
+  position: relative;
+  z-index: 5;
+  overflow: hidden;
+  margin-left: 70px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.image-frame img {
+  width: 100%;
+  display: block;
+}
+
+.text-section {
+  padding: 2rem;
+}
+
+.title {
+  font-size: 5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  font-weight: 900;
+  position: relative;
+}
+
+.title .work {
+  display: block;
+}
+
+.title .that {
+  display: block;
+  padding-left: 3rem;
+}
+
+.title .matters {
+  display: block;
+}
+
+.triangle {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 3rem;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #e7ae72;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 1.8rem;
+  color: #000000;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+.cards-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #2e693a;
+  padding: 2rem 0;
+}
+
+.hospital-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.hospital-header h1 {
+  color: #ffffff;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.hospital-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.hospital-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  transition: height 0.4s ease;
+  background: linear-gradient(90deg, #f8f9ff, #2c2c2c);
+}
+
+.hospital-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.hospital-card:hover::before {
+  height: 8px;
+}
+
+.hospital-card.expanded {
+  grid-column: 1 / -1;
+  transform: scale(1.02);
+}
+
+.card-header {
+  margin-bottom: 15px;
+}
+
+.card-header .card-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.mapa {
+  text-align: center;
+}
+
+.mapa iframe {
+  border-radius: 10px;
+}
+
+.hospital-card .card-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hospital-card.expanded .card-content {
+  max-height: 2000px;
+  opacity: 1;
+  margin-top: 20px;
+}
+
+.hospital-card .card-description {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #f0f0f0;
+  font-weight: normal;
+}
+
+.click-indicator {
+  text-align: center;
+  color: #999;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  transition: opacity 0.3s ease;
+  font-weight: normal;
+}
+
+.hospital-card.expanded .click-indicator {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+}
+
+.chevron {
+  float: right;
+  width: 24px;
+  height: 24px;
+  border-right: 3px solid #666;
+  border-bottom: 3px solid #666;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.hospital-card.expanded .chevron {
+  transform: rotate(-135deg);
+}
+
+@media (max-width: 968px) {
+  .hospital-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hospital-header h1 {
+    font-size: 2rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trian {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* ================================= */
+/* ESTILOS POPUP TURÍSTICO */
+
+.popup-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.swal2-popup {
+  padding: 0 !important;
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+#swal2-html-container {
+  padding: 10 !important;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 3px #274830 solid;
+}
+
+.popup-grande {
+  width: 1000px !important;
+  height: 480px !important;
+  max-height: 90vh;
+}
+
+.popup-left {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-left img {
+  position: relative;
+  top: 60px;
+  width: 90%;
+  max-width: 450px;
+  height: 320px;
+  border-radius: 10px;
+}
+
+.popup-arrows {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 390px;
+  margin-top: -100px;
+  position: relative;
+}
+
+.back-arrow {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: none;
+  border: none;
+  color: #274830;
+  font-size: 48px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.back-arrow:hover {
+  transform: scale(1.2);
+}
+
+.arrow-btn {
+  background: rgba(255, 255, 255, 0.5);
+  color: #274830;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.popup-right {
+  flex: 1;
+  padding-top: 60px;
+}
+
+.popup-right span {
+  font-weight: 800;
+}
+
+.popup-right p {
+  text-align: justify;
+  color: #274830;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.popup-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 35px;
+  gap: 30px;
+}
+
+.popup-bottom iframe {
+  border: 0;
+  border-radius: 10px;
+  width: 250px;
+  height: 150px;
+}
+
+.popup-btn {
+  background-color: #274830;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.popup-btn:hover {
+  background-color: #2e693a;
+}
+
+/* ================= carnavales ==================== */
+.carnavales {
+  padding: 60px 5%;
+  background: #fff8e5;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.carnavales-titulo {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.carnavales-intro {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ==== Carrusel ==== */
+.carrusel {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.carrusel-inner {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.carrusel-inner img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  height: 400px;
+}
+
+.carrusel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.carrusel button:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* ==== Cards ==== */
+.carnavales{
+  background-color: white;
+}
+.carnavales-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card-carnaval {
+  background: #358244;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 25px 20px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.card-carnaval:hover {
+  transform: translateY(-5px);
+}
+
+.card-carnaval h3 {
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.card-carnaval p, .card-carnaval ul {
+  font-size: 15px;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.card-carnaval ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+
+@media (max-width: 800px) {
+  .carnavales-grid {
+    grid-template-columns: 1fr;
+  }
+  .carrusel-inner img {
+    height: 250px;
+  }
+}
+
+
+
+
+/* ================================= */
+/* FOOTER */
+
+.footer {
+  background-repeat: no-repeat;
+  background-position: center 100px;
+  background-size: 85%;
+  color: white;
+  padding: 30px 0 20px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #2e693a;
+  z-index: -1;
+}
+
+.footer-content {
+  margin: 0 auto;
+  padding: 10px 40px;
+  width: 90%;
+}
+
+.logo-section {
+  text-align: center;
+  position: relative;
+}
+
+.linea-horizontal {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff;
+  z-index: -1;
+}
+
+.logo-footer {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgb(255, 255, 255);
+}
+
+.logo-footer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  color: #ccc;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #ccc;
+}
+
+.footer-section ul li a:hover {
+  font-weight: bold;
+  color: white;
+}
+
+.social-icons i {
+  margin-right: 10px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.footer-bottom {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* 🔹 Responsive footer */
+@media (max-width: 992px) {
+  .footer-grid {
+    justify-content: center;
+  }
+  .logo-footer {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-section {
+    min-width: 100%;
+    text-align: center;
+  }
+  .logo-footer {
+    width: 80px;
+    height: 80px;
+  }
+  .footer-bottom {
+    font-size: 11px;
+  }
+}
+

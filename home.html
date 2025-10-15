@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timbío</title>
+
+  <!-- Fuentes e íconos -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+  <link rel="stylesheet" href="home.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script src="home.js" defer></script>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="img/unnamed.png" type="image/x-icon">
+</head>
+
+<body>
+
+  <!-- Hero Section con Navbar -->
+  <div class="hero-section">
+    <div class="background-slider">
+      <div class="slide active"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+      <a href="#" class="logo-nav">
+        <img src="img/unnamed-removebg-preview.png" alt="Popayán Tour Logo">
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#Restaurants">Restaurants</a></li>
+        <li><a href="#Tourist Attractions">Tourist Attractions</a></li>
+        <li><a href="#Education">Education</a></li>
+        <li><a href="#Health">Health</a></li>
+        <li><a href="#Sports & Recreation">Sports & Recreation</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-content" id="home">
+      <div class="welcome-line">
+        <div class="welcome-text">WELCOME TO</div>
+        <div class="city-line"></div>
+      </div>
+      <div class="city-name-container">
+        <h1 class="city-name">Timbío</h1>
+      </div>
+      <div class="location">
+        <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i>
+        <p>Cauca, Colombia</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============ Restaurantes ====================== -->
+  <!-- Cards -->
+  <section class="descubre" id="Restaurants">
+    <h2 class="descubre-titulo">Restaurants in Timbio</h2>
+    <div class="tarjetas-grid">
+      <!-- Card ejemplo -->
+      <div class="card-sobresaliente"
+        onclick="window.location.href='https://www.instagram.com/lago_la_marqueza/?hl=es'">
+        <div class="card-fondo">
+          <img src="img/restaurantes/restau1.webp" class="img-fondo">
+        </div>
+        <div class="card-content">
+          <h3>Lago la marqueza</h3>
+          <p class="card-description">We are a rural place in harmony with nature</p>
+          <div class="card-info">
+            <div class="card-rating">
+              <span>⭐</span>
+              <span>4.2</span>
+            </div>
+            <span class="card-specialty">Varied</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-sobresaliente">
+        <div class="card-fondo">
+          <img src="img/restaurantes/restau2.webp" alt="Fondo" class="img-fondo">
+        </div>
+        <div class="card-content">
+          <h3>Carbon parrilla</h3>
+          <p class="card-description">Want to eat delicious food? You have to visit us</p>
+          <div class="card-info">
+            <div class="card-rating">
+              <span>⭐</span>
+              <span>4.5</span>
+            </div>
+            <span class="card-specialty">Mixed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-sobresaliente">
+        <div class="card-fondo">
+          <img src="img/restaurantes/restau3.webp" alt="Fondo" class="img-fondo">
+        </div>
+        <div class="card-content">
+          <h3>El encanto campestre</h3>
+          <p class="card-description">We welcome you to a place full of magic and charm </p>
+          <div class="card-info">
+            <div class="card-rating">
+              <span>⭐</span>
+              <span>5.0</span>
+            </div>
+            <span class="card-specialty">valued</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-sobresaliente">
+        <div class="card-fondo">
+          <img src="img/restaurantes/restau4.webp" alt="Fondo" class="img-fondo">
+        </div>
+        <div class="card-content">
+          <h3>El porton de llano timbio</h3>
+          <p class="card-description">Come and delight yourself with our exquisite llanera-style cut</p>
+          <div class="card-info">
+            <div class="card-rating">
+              <span>⭐</span>
+              <span>4.9</span>
+            </div>
+            <span class="card-specialty">Roasts</span>
+          </div>
+        </div>
+      </div>
+      <!-- ... -->
+    </div>
+  </section>
+
+
+  <!-- turisticooo -->
+
+  <section class="tourist-section" id="Tourist Attractions">
+    <div class="section-header">
+      <h2 class="descubre-titulo5">Tourist Attractions<br> <span class="descubre-titulo3">Explore the tourist and
+          beautiful places of our municipality </span></h2>
+      <p class="section-subtitle"></p>
+    </div>
+
+    <div class="tourist-grid">
+      <!-- Card Grande 1 -->
+      <div class="tourist-card large">
+        <div class="tourist-image-container">
+          <img src="img/restaurantes/vuelo-canopy.jpg" alt="Parque Natural" class="tourist-image">
+          <div class="tourist-overlay">
+            <span class="tourist-category">🏞️ Nature</span>
+            <h3 class="tourist-title">Canopy las ardillas</h3>
+            <p class="tourist-desc">Come and feel the magic of flying between trees.</p>
+            <button class="tourist-btn" onclick="showTouristInfo()">Explore</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Mediana 1 -->
+      <div class="tourist-card medium">
+        <div class="tourist-image-container">
+          <img src="img/restaurantes/Iglesia_San_Pedro_Timbio.jpg" alt="Iglesia Colonial" class="tourist-image">
+          <div class="tourist-overlay">
+            <span class="tourist-category">⛪ Culture</span>
+            <h3 class="tourist-title">Iglesia san Pedro</h3>
+            <p class="tourist-desc">Catholic Church in Timbio</p>
+            <button class="tourist-btn" onclick="showTouristInfo2()">Go</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Mediana 2 -->
+      <div class="tourist-card medium">
+        <div class="tourist-image-container">
+          <img src="img/restaurantes/MainPark.webp" alt="Parque Central" class="tourist-image">
+          <div class="tourist-overlay">
+            <span class="tourist-category">🌳 Main park</span>
+            <h3 class="tourist-title">Main park</h3>
+            <p class="tourist-desc">quiet place to enjoy</p>
+            <button class="tourist-btn" onclick="showTouristInfo3()">Go</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Pequeña 1 -->
+      <div class="tourist-card small">
+        <div class="tourist-image-container">
+          <img src="img/restaurantes/parque_boyaca.png" alt="Mirador" class="tourist-image">
+          <div class="tourist-overlay">
+            <span class="tourist-category">🌳 Park</span>
+            <h3 class="tourist-title">Park centenario Boyacá</h3>
+            <button class="tourist-btn" onclick="showTouristInfo4()">Go</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Pequeña 2 -->
+      <div class="tourist-card small">
+        <div class="tourist-image-container">
+          <img src="img/restaurantes/tunurco.webp" alt="Cascada" class="tourist-image">
+          <div class="tourist-overlay">
+            <span class="tourist-category">💧 Waterfall</span>
+            <h3 class="tourist-title">Tunurco waterfall</h3>
+            <button class="tourist-btn" onclick="showTouristInfo5()">Visit</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Grande 2 -->
+      <div class="tourist-card large">
+        <div class="tourist-image-container">
+          <img src="img/restaurantes/unnamed (6).webp" alt="Finca Cafetera" class="tourist-image">
+          <div class="tourist-overlay">
+            <span class="tourist-category">🏞️ Lake</span>
+            <h3 class="tourist-title">Lago la marqueza</h3>
+            <p class="tourist-desc">A rural place in harmony with nature.</p>
+            <button class="tourist-btn" onclick="showTouristInfo6()">visit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== ESCUELAS =========== -->
+
+  <div class="container-school" id="Education">
+    <div class="school-header">
+      <h2>Educational Institutions</h2>
+    </div>
+
+    <div class="grid">
+      <!-- Card 1 -->
+      <div class="school-card">
+        <img class="card-img" src="img/img-school/tres.png" alt="Carlos Albán">
+        <div class="card-overlay">
+          <h3 class="card-title">Carlos Albán Educational Institution</h3>
+        </div>
+        <div class="info-panel">
+          <div>
+            <h4>Carlos Albán</h4>
+            <div class="info-item">
+              <div class="info-label">Location</div>
+              <div class="info-text">Timbio, Cauca</div>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-item">
+              <div class="info-label">Levels</div>
+              <div class="info-text">Basic and Secondary Education</div>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-item">
+              <div class="info-label">About</div>
+              <div class="info-text">
+                It offers a broad social and educational service to the community, including rural areas. Its
+                coverage
+                is not only urban; many of its branches are located in rural zones, allowing students from less
+                urbanized areas to access education without having to travel long distances.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="school-card">
+        <img class="card-img" src="img/img-school/seis.jpg" alt="Guillermo Valencia">
+        <div class="card-overlay">
+          <h3 class="card-title">Guillermo Valencia Educational Institution</h3>
+        </div>
+        <div class="info-panel">
+          <div>
+            <h4>Guillermo Valencia</h4>
+            <div class="info-item">
+              <div class="info-label">Location</div>
+              <div class="info-text">Popayán, Cauca</div>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-item">
+              <div class="info-label">Levels</div>
+              <div class="info-text">Preschool, Basic and Secondary Education</div>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-item">
+              <div class="info-label">About</div>
+              <div class="info-text">Institution with a deep educational tradition committed to comprehensive
+                formation.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="school-card">
+        <img class="card-img" src="img/img-school/cinco.jpg" alt="San Antonio de Padua">
+        <div class="card-overlay">
+          <h3 class="card-title">San Antonio de Padua</h3>
+        </div>
+        <div class="info-panel">
+          <div>
+            <h4>San Antonio de Padua</h4>
+            <div class="info-item">
+              <div class="info-label">Location</div>
+              <div class="info-text">Calle 15 #14-89, Timbio, Cauca</div>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-item">
+              <div class="info-label">Levels</div>
+              <div class="info-text">Preschool, Basic, and Secondary Education</div>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-item">
+              <div class="info-label">About</div>
+              <div class="info-text">
+                The institution has stood out for being recognized "as one of the best in the country" in certain
+                aspects, such as having one of the highest averages in national standardized tests.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="school-card">
+        <img class="card-img" src="img/img-school/ochp.jpg" alt="Technical Institution">
+        <div class="card-overlay">
+          <h3 class="card-title">Agropecuaria Cinco Días Educational Institution</h3>
+        </div>
+        <div class="info-panel">
+          <div>
+            <h4>Agropecuaria Cinco Días Educational Institution</h4>
+            <div class="info-item">
+              <div class="info-label">Location</div>
+              <div class="info-text">Cinco Días Village, Timbio, Cauca</div>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-item">
+              <div class="info-label">Levels</div>
+              <div class="info-text">Preschool, Basic, and Secondary Education</div>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-item">
+              <div class="info-label">About</div>
+              <div class="info-text">
+                It defines itself as a technical agropecuary institution, focusing on education related to
+                agricultural
+                and livestock production, practical knowledge of farming, productive techniques, and related fields.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========== hospital ============== -->
+  <div class="hospital-container" id="Health">
+    <div class="character-section">
+      <div class="character">
+        <div class="trian trian-top-left"></div>
+        <div class="image-frame">
+          <img src="img/img-hospital/hospital_timbio.jpg" alt="Hospital Timbío">
+        </div>
+        <div class="trian trian-bottom-right"></div>
+      </div>
+    </div>
+
+    <div class="text-section">
+      <div class="title">
+        <span class="work">HOSPITAL <span class="triangle">▲</span></span>
+        <span class="that">TIMBIO</span>
+        <span class="matters">E.S.E</span>
+      </div>
+
+      <p class="subtitle">Health • Commitment</p>
+
+      <p class="description">
+        The Hospital de Timbío E.S.E. is a public health institution that provides
+        comprehensive medical services to the population of the municipality of Timbío and surrounding areas.
+        Our commitment is to offer humane, timely, and high-quality care, strengthening the health and
+        well-being of all citizens.
+      </p>
+    </div>
+  </div>
+
+  <div class="cards-container">
+    <div class="hospital-header">
+      <h1>About the Hospital</h1>
+    </div>
+
+    <div class="cards-grid">
+      <div class="hospital-card purple" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="chevron"></div>
+          <h3 class="card-title">History</h3>
+        </div>
+
+        <div class="card-content">
+          <p class="card-description">
+            <strong>The Hospital de Timbío E.S.E.</strong>, founded over 30 years ago in Timbío, Cauca, is part of
+            the
+            public health
+            system and serves around 35,000 people, including local and rural communities. It employs about 120
+            staff
+            members. After facing a major financial and operational crisis, the hospital recovered under Dr. Mónica
+            Campo’s leadership through improved management, patient care, and administrative reorganization. This
+            led
+            to
+            debt repayment, service improvement, and financial growth—from 4 billion pesos billed in 2016 to 8.5
+            billion
+            in 2019. Medical consultations also rose from 36,000 to 63,000 annually. Recently, new infrastructure,
+            modern equipment, and an ambulance were added to enhance healthcare and emergency services.
+          </p>
+        </div>
+
+        <div class="click-indicator">Click to see more</div>
+      </div>
+
+      <div class="hospital-card orange" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="chevron"></div>
+          <h3 class="card-title">Interesting Facts</h3>
+        </div>
+
+        <div class="card-content">
+          <p class="card-description">
+            Despite facing a severe financial crisis, the Hospital de Timbío E.S.E. achieved recovery without
+            relying
+            on
+            municipal, departmental, or national co-financing to pay debts — an uncommon accomplishment among
+            similar
+            institutions. Under effective management, the hospital notably reduced breast and cervical cancer cases,
+            going from 7 in 2016 to 3 in 2017, and none in subsequent years. Outpatient services improved
+            significantly
+            in both accessibility and waiting times due to administrative reforms.
+
+            Beyond medical care, the hospital is active in public health and prevention initiatives, including
+            breastfeeding promotion, human milk banks, and kangaroo mother programs. The institution’s recovery and
+            modernization were supported by collaboration between hospital management, the local government, and
+            national health entities, leading to enhanced infrastructure, updated equipment, and strong community
+            backing.
+          </p>
+        </div>
+
+        <div class="click-indicator">Click to see more</div>
+      </div>
+
+      <div class="hospital-card blue" onclick="toggleCard(this)">
+        <div class="card-header">
+          <div class="chevron"></div>
+          <h3 class="card-title">Location</h3>
+        </div>
+
+        <div class="card-content">
+          <p class="card-description">
+            It is located at Carrera 22 No. 18, corner of San Judas neighborhood.
+          </p>
+          <div class="mapa">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.4495107465705!2d-76.68818182503176!3d2.3546689976248305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2fe30068f6b691%3A0x7e6c6aad6fb8dc9f!2sHospital%20Timb%C3%ADo%20E.S.E!5e0!3m2!1ses-419!2sco!4v1760468160799!5m2!1ses-419!2sco"
+              width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <div class="click-indicator">Click to see more</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =================== carnavales =================== -->
+
+  <section class="carnavales" id="Sports & Recreation">
+    <h2 class="descubre-titulo">Carnavales de Negros y Blancos de Timbío</h2>
+    <p class="carnavales-intro">
+      En Timbío, Cauca, se vive una de las celebraciones más alegres y coloridas del suroccidente colombiano:
+      los <strong>Carnavales de Negros y Blancos</strong>. Durante varios días, las calles se llenan de música,
+      comparsas, desfiles, espuma y alegría, resaltando la identidad cultural de la región.
+    </p>
+
+    <!-- Carrusel de imágenes -->
+    <div class="carrusel">
+      <div class="carrusel-inner">
+        <img src="img/carnaval1.jpeg" alt="Desfile de carrozas en Timbío">
+        <img src="img/carnaval4.jpeg" alt="Comparsas de los Carnavales de Timbío">
+        <img src="img/carnaval3.jpg" alt="Jornada del día de Negros y Blancos">
+      </div>
+      <button class="prev" onclick="moverCarrusel(-1)">&#10094;</button>
+      <button class="next" onclick="moverCarrusel(1)">&#10095;</button>
+    </div>
+
+    <!-- Cards de información -->
+    <div class="carnavales-grid">
+      <div class="card-carnaval">
+        <h3>Origin and meaning</h3>
+        <p>
+          This festivity, inherited from the Carnival of Blacks and Whites in Pasto, reflects the cultural unity of
+          Afro, Indigenous, and Mestizo communities.
+          In Timbío, it has been celebrated for decades with parades, musical groups, and performances that highlight
+          the identity of Cauca.
+
+        </p>
+      </div>
+
+      <div class="card-carnaval">
+        <h3>Dates and tradition</h3>
+        <p>
+          It is usually held between January 4th and 7th. Each day has its own meaning: the Day of Blacks, the Day of
+          Whites, the Children’s Carnival, and the grand parade of floats — all accompanied by music, foam, flour, and
+          smiles. </p>
+      </div>
+
+      <div class="card-carnaval">
+        <h3>Main activities</h3>
+        <ul>
+          <li>Parades of themed floats and troupes.</li>
+          <li>Children’s and family “Carnavalito.</li>
+          <li>Concerts and a youth stage featuring local artists.</li>
+          <li>Cultural and gastronomic events.</li>
+        </ul>
+      </div>
+
+      <div class="card-carnaval">
+        <h3>Spirit and community</h3>
+        <p>
+          It is a celebration that unites all the people of Timbío under a single motto: joy, harmony, and pride in
+          their roots.
+          Every year, tourists and locals actively participate by decorating the streets and sharing in peace.
+
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let indice = 0;
+    function moverCarrusel(direccion) {
+      const slides = document.querySelectorAll('.carrusel-inner img');
+      indice = (indice + direccion + slides.length) % slides.length;
+      document.querySelector('.carrusel-inner').style.transform = `translateX(-${indice * 100}%)`;
+    }
+  </script>
+
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="logo-section">
+        <div class="logo-footer">
+          <img src="img/logooooo.jfif" alt="Logo Popayán Tour">
+        </div>
+        <div class="linea-horizontal"></div>
+      </div>
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>About</h3>
+          <ul>
+            <li><a href="#">¿Who we are?</a></li>
+            <li><a href="#">Terms and conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <ul>
+            <li>Email: <br>TimbioAtencionAlCliente@gmail.com</li>
+            <li>Toll-free line: <br>323 5866482</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Social Media</h3>
+          <ul class="social-icons">
+            <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/popayanalltour/">@TimBio</a>
+            </li>
+            <li><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/profile.php?id=61578069024241">TimBio</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; Timbio | All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

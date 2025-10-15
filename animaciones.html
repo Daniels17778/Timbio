@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaciones CSS de Entrada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .animation-box {
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            overflow: hidden;
+        }
+
+        .card h3 {
+            color: #333;
+            font-size: 14px;
+            text-align: center;
+            min-height: 40px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+            width: 100%;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* ANIMACIONES DE ENTRADA */
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInTop {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInBottom {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes rotateIn {
+            from { transform: rotate(-45deg); opacity: 0; }
+            to { transform: rotate(0); opacity: 1; }
+        }
+
+        @keyframes flipInX {
+            from { transform: perspective(400px) rotateX(90deg); opacity: 0; }
+            to { transform: perspective(400px) rotateX(0); opacity: 1; }
+        }
+
+        @keyframes flipInY {
+            from { transform: perspective(400px) rotateY(90deg); opacity: 0; }
+            to { transform: perspective(400px) rotateY(0); opacity: 1; }
+        }
+
+        @keyframes elasticIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes pulseIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes slideRotateIn {
+            from { transform: translateX(-100%) rotate(-45deg); opacity: 0; }
+            to { transform: translateX(0) rotate(0); opacity: 1; }
+        }
+
+        @keyframes wobbleIn {
+            0% { transform: translateX(-100%); opacity: 0; }
+            15% { transform: translateX(0) rotate(3deg); }
+            30% { transform: translateX(0) rotate(-3deg); }
+            45% { transform: translateX(0) rotate(3deg); }
+            60% { transform: translateX(0) rotate(-3deg); }
+            75% { transform: translateX(0) rotate(3deg); }
+            100% { transform: translateX(0) rotate(0); opacity: 1; }
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); opacity: 0; }
+            10%, 30% { transform: scale(1); }
+            20% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes lightSpeedIn {
+            from { transform: translateX(-100%) skewX(20deg); opacity: 0; }
+            to { transform: translateX(0) skewX(0); opacity: 1; }
+        }
+
+        @keyframes jackInTheBox {
+            0% { opacity: 0; transform: scale(0.1) rotate(45deg); }
+            50% { transform: rotate(-10deg); }
+            70% { transform: rotate(3deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0); }
+        }
+
+        .animate {
+            animation-duration: 0.8s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+        }
+
+        .animate.fadeIn { animation-name: fadeIn; }
+        .animate.slideInLeft { animation-name: slideInLeft; }
+        .animate.slideInRight { animation-name: slideInRight; }
+        .animate.slideInTop { animation-name: slideInTop; }
+        .animate.slideInBottom { animation-name: slideInBottom; }
+        .animate.zoomIn { animation-name: zoomIn; }
+        .animate.bounceIn { animation-name: bounceIn; animation-duration: 1s; }
+        .animate.rotateIn { animation-name: rotateIn; }
+        .animate.flipInX { animation-name: flipInX; }
+        .animate.flipInY { animation-name: flipInY; }
+        .animate.elasticIn { animation-name: elasticIn; animation-duration: 1s; }
+        .animate.pulseIn { animation-name: pulseIn; }
+        .animate.slideRotateIn { animation-name: slideRotateIn; }
+        .animate.wobbleIn { animation-name: wobbleIn; animation-duration: 1s; }
+        .animate.heartBeat { animation-name: heartBeat; animation-duration: 1.2s; }
+        .animate.lightSpeedIn { animation-name: lightSpeedIn; animation-duration: 0.6s; }
+        .animate.jackInTheBox { animation-name: jackInTheBox; animation-duration: 0.9s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Animaciones CSS de Entrada</h1>
+        <div class="grid" id="grid"></div>
+    </div>
+
+    <script>
+        const animations = [
+            { name: 'Fade In', class: 'fadeIn', emoji: '🌫️' },
+            { name: 'Slide In Left', class: 'slideInLeft', emoji: '⬅️' },
+            { name: 'Slide In Right', class: 'slideInRight', emoji: '➡️' },
+            { name: 'Slide In Top', class: 'slideInTop', emoji: '⬆️' },
+            { name: 'Slide In Bottom', class: 'slideInBottom', emoji: '⬇️' },
+            { name: 'Zoom In', class: 'zoomIn', emoji: '🔍' },
+            { name: 'Bounce In', class: 'bounceIn', emoji: '🎾' },
+            { name: 'Rotate In', class: 'rotateIn', emoji: '🔄' },
+            { name: 'Flip In X', class: 'flipInX', emoji: '🔀' },
+            { name: 'Flip In Y', class: 'flipInY', emoji: '🔁' },
+            { name: 'Elastic In', class: 'elasticIn', emoji: '🪀' },
+            { name: 'Pulse In', class: 'pulseIn', emoji: '💓' },
+            { name: 'Slide Rotate In', class: 'slideRotateIn', emoji: '🌪️' },
+            { name: 'Wobble In', class: 'wobbleIn', emoji: '🫨' },
+            { name: 'Heart Beat', class: 'heartBeat', emoji: '❤️' },
+            { name: 'Light Speed In', class: 'lightSpeedIn', emoji: '⚡' },
+            { name: 'Jack In The Box', class: 'jackInTheBox', emoji: '🎁' },
+        ];
+
+        const grid = document.getElementById('grid');
+
+        animations.forEach((anim, index) => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <div class="animation-box" id="box-${index}">
+                    <span>${anim.emoji}</span>
+                </div>
+                <h3>${anim.name}</h3>
+                <button onclick="playAnimation(${index}, '${anim.class}')">
+                    Reproducir Animación
+                </button>
+            `;
+            grid.appendChild(card);
+        });
+
+        function playAnimation(index, animationClass) {
+            const box = document.getElementById(`box-${index}`);
+            
+            // Remover la animación anterior
+            box.classList.remove('animate', ...animations.map(a => a.class));
+            
+            // Forzar reflow para reiniciar la animación
+            void box.offsetWidth;
+            
+            // Añadir la nueva animación
+            box.classList.add('animate', animationClass);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timbioclick</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial Black', Arial, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 0 auto 4rem auto;
+        }
+
+        .character-section {
+            position: relative;
+        }
+
+        .character {
+            position: relative;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .trian {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            z-index: 10;
+        }
+
+        .trian-top-left {
+            top: 0;
+            left: 0;
+            animation: floatTopLeft 4s ease-in-out infinite;
+            background: #000000;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .trian-bottom-right {
+            bottom: 0;
+            right: 0;
+            animation: floatBottomRight 4s ease-in-out infinite;
+            background: #000000;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        @keyframes floatTopLeft {
+            0%, 100% { 
+                transform: translate(0, 0) rotate(0deg);
+            }
+            50% { 
+                transform: translate(-10px, -10px) rotate(5deg);
+            }
+        }
+
+        @keyframes floatBottomRight {
+            0%, 100% { 
+                transform: translate(0, 0) rotate(180deg);
+            }
+            50% { 
+                transform: translate(10px, 10px) rotate(185deg);
+            }
+        }
+
+        .image-frame {
+            position: relative;
+            z-index: 5;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .image-frame img {
+            width: 100%;
+            display: block;
+        }
+
+        .text-section {
+            padding: 2rem;
+        }
+
+        .title {
+            font-size: 5rem;
+            color: #2a2a2a;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            font-weight: 900;
+            position: relative;
+        }
+
+        .title .work {
+            display: block;
+        }
+
+        .title .that {
+            display: block;
+            padding-left: 3rem;
+        }
+
+        .title .matters {
+            display: block;
+        }
+
+        .triangle {
+            display: inline-block;
+            color: #f4b942;
+            font-size: 3rem;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #8b7355;
+            margin-bottom: 1.5rem;
+            font-family: Arial, sans-serif;
+            font-weight: normal;
+        }
+
+        .description {
+            font-size: 1.8rem;
+            color: #2a2a2a;
+            font-family: Arial, sans-serif;
+            font-weight: normal;
+            line-height: 1.4;
+        }
+
+        .cards-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            color: #2a2a2a;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            transition: height 0.4s ease;
+            background: linear-gradient(90deg, #f8f9ff, #2c2c2c);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .card:hover::before {
+            height: 8px;
+        }
+
+        .card.expanded {
+            grid-column: 1 / -1;
+            transform: scale(1.02);
+        }
+
+        .card-header {
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .mapa {
+            text-align: center;
+        }
+
+        .mapa iframe {
+            border-radius: 10px;
+        }
+
+        .card-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card.expanded .card-content {
+            max-height: 2000px;
+            opacity: 1;
+            margin-top: 20px;
+        }
+
+        .card-description {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f0f0;
+            font-weight: normal;
+        }
+
+        .click-indicator {
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            transition: opacity 0.3s ease;
+            font-weight: normal;
+        }
+
+        .card.expanded .click-indicator {
+            opacity: 0;
+            height: 0;
+            margin: 0;
+        }
+
+        .chevron {
+            float: right;
+            width: 24px;
+            height: 24px;
+            border-right: 3px solid #666;
+            border-bottom: 3px solid #666;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+        }
+
+        .card.expanded .chevron {
+            transform: rotate(-135deg);
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trian {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="character-section">
+            <div class="character">
+                <div class="trian trian-top-left"></div>
+                <div class="image-frame">
+                    <img src="img-hospital/hospital_timbio.jpg" alt="Hospital Timbío">
+                </div>
+                <div class="trian trian-bottom-right"></div>
+            </div>
+        </div>
+
+        <div class="text-section">
+            <div class="title">
+                <span class="work">HOSPITAL <span class="triangle">▲</span></span>
+                <span class="that">TIMBIO</span>
+                <span class="matters">E.S.E</span>
+            </div>
+
+            <p class="subtitle">Health • Commitment</p>
+            
+            <p class="description">
+                The Hospital de Timbío E.S.E. is a public health institution that provides
+                comprehensive medical services to the population of the municipality of Timbío and surrounding areas. 
+                Our commitment is to offer humane, timely, and high-quality care, strengthening the health and 
+                well-being of all citizens.
+            </p>
+        </div>
+    </div>
+
+    <div class="cards-container">
+        <div class="header">
+            <h1>About the Hospital</h1>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card purple" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="chevron"></div>
+                    <h3 class="card-title">History</h3>
+                </div>
+                
+                <div class="card-content">
+                    <p class="card-description">
+                        <strong>Foundation and Service</strong><br>
+                        The Hospital de Timbío E.S.E. was founded more than 30 years ago as part of the public health system 
+                        of the municipality of Timbío, Cauca department.<br><br>
+
+                        It serves local residents, rural communities, and people from the region who require 
+                        first-level medical attention.<br>
+                        Approximately 35,000 people depend on its services.<br><br>
+
+                        <strong>Staff and Equipment</strong><br>
+                        It has around 120 employees, including healthcare and administrative personnel.<br><br>
+
+                        Before recent improvements, the hospital's equipment was partially outdated.<br><br>
+
+                        <strong>Crisis and Recovery</strong><br>
+                        At one point, the hospital went through a significant operational and financial crisis.<br><br>
+
+                        Under the management of Dr. Mónica Campo, a management model was implemented that included good 
+                        patient safety practices, humanized treatment, and administrative reorganization. 
+                        As a result, the hospital recovered financially, paid off debts to employees and suppliers, 
+                        and significantly improved its services.<br><br>
+
+                        <strong>Improvement of Service Indicators</strong><br>
+                        In 2016, the hospital billed around 4 billion pesos per year, a figure that almost doubled by 2019, 
+                        reaching about 8.5 billion pesos.<br><br>
+
+                        The number of elective general medicine consultations increased from around 36,000 per year to 
+                        approximately 63,000 (between 2016 and 2019), thanks to improved access and operational capacity.<br><br>
+
+                        <strong>Recent Infrastructure and Equipment</strong><br>
+                        Historic resources have recently been allocated to complete hospital infrastructure works and acquire 
+                        medical and technological equipment.<br><br>
+
+                        A new ambulance was also delivered to strengthen the emergency response capacity.<br>
+                    </p>
+                </div>
+
+                <div class="click-indicator">Click to see more</div>
+            </div>
+
+            <div class="card orange" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="chevron"></div>
+                    <h3 class="card-title">Interesting Facts</h3>
+                </div>
+                
+                <div class="card-content">
+                    <p class="card-description">
+                        Despite the financial crisis, the hospital managed to recover without relying on municipal, departmental, 
+                        or national co-financing to pay employee and supplier debts — something uncommon among E.S.E. institutions 
+                        in the country.<br><br>
+
+                        One of the most visible results of this management was the significant reduction in breast and cervical 
+                        cancer cases: in 2016 there were 7 cases reported, in 2017 only 3, and in the following years no new 
+                        serious cases were registered according to available data.<br><br>
+
+                        The improvement in outpatient services was remarkable — not only in the number of consultations but also 
+                        in accessibility and waiting times, thanks to administrative reorganization.<br><br>
+
+                        In addition to medical care, the hospital actively participates in public health and prevention campaigns, 
+                        such as breastfeeding promotion, human milk banks, kangaroo mother program, and breastfeeding-friendly 
+                        rooms, among others.<br><br>
+
+                        The community has also shown great support for the institution: resource allocation for infrastructure 
+                        and equipment was the result of teamwork between hospital management, the municipal administration, and 
+                        national health entities.<br>
+                    </p>
+                </div>
+
+                <div class="click-indicator">Click to see more</div>
+            </div>
+
+            <div class="card blue" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="chevron"></div>
+                    <h3 class="card-title">Location</h3>
+                </div>
+                
+                <div class="card-content">
+                    <p class="card-description">
+                        It is located at Carrera 22 No. 18, corner of San Judas neighborhood.
+                    </p>
+                    <div class="mapa">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.4495107465705!2d-76.68818182503176!3d2.3546689976248305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2fe30068f6b691%3A0x7e6c6aad6fb8dc9f!2sHospital%20Timb%C3%ADo%20E.S.E!5e0!3m2!1ses-419!2sco!4v1760468160799!5m2!1ses-419!2sco" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div class="click-indicator">Click to see more</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCard(card) {
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+            } else {
+                document.querySelectorAll('.card').forEach(function(c) {
+                    c.classList.remove('expanded');
+                });
+                card.classList.add('expanded');
+            }
+        }
+    </script>
+</body>
+</html>

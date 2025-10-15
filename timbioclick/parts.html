@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitios Turísticos Timbío</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .tourist-card {
+            width: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform .2s;
+        }
+
+        .tourist-card:hover {
+            transform: scale(1.03);
+        }
+
+        .tourist-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .tourist-card h3 {
+            margin: 10px;
+        }
+
+        /* Estilos del contenido del popup */
+        .popup-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        /* importante */
+
+        .swal2-popup {
+            padding: 10 !important;
+            /* elimina el padding interno */
+        }
+
+        #swal2-html-container {
+            padding: 10 !important;
+        }
+
+        /* importante */
+
+        .popup-grande {
+            width: 1000px !important;
+            /* ancho */
+            height: 480px !important;
+            /* alto */
+            max-height: 90vh;
+            /* evita que se salga de la pantalla */
+        }
+
+        .popup-left {
+            flex: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .popup-left img {
+            position: relative;
+            top: 60px;
+            /* 👈 baja solo la foto */
+            width: 90%;
+            max-width: 480px;
+            height: 350px;
+            border-radius: 10px;
+        }
+
+        .popup-arrows {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;            
+            max-width: 390px;
+            margin-top: -130px;
+            position: relative;
+        }
+
+        .arrow-btn {
+            background: rgb(0, 0, 0);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .popup-right {
+            flex: 1;
+        }
+
+        .popup-right p {
+            text-align: justify;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .popup-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            gap: 20px;
+        }
+
+        iframe {
+            border: 0;
+            border-radius: 10px;
+            width: 200px;
+            height: 150px;
+        }
+
+        .popup-btn {
+            background-color: #1e5128;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .popup-btn:hover {
+            background-color: #2e693a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="text-align:center;">Sitios Turísticos de Timbío</h1>
+    <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+        <div class="tourist-card" onclick="showTouristInfo()">
+            <img src="imgs/vuelo-canopy.jpg" alt="Canopy Las Ardillas">
+            <h3>Canopy Las Ardillas</h3>
+        </div>
+    </div>
+
+    <script>
+        function showTouristInfo() {
+            let photos = [
+                "imgs/vuelo-canopy.jpg",
+                "imgs/Canopy2.jpg",
+                "imgs/Canopy3.jpg"
+            ];
+            let current = 0;
+
+            Swal.fire({
+                showConfirmButton: false,
+                width: 1200,
+                heightAuto: false, // desactiva el tamaño automático
+                customClass: {
+                    popup: 'popup-grande'
+                },
+                html: `
+                    <div style="position:absolute; top:10px; left:10px;">
+                        <button class="arrow-btn" id="goBack">←</button>
+                    </div>
+          <div class="popup-container">
+            <div class="popup-left">
+              <img id="popup-img" src="${photos[0]}" alt="Fotos">
+              <div class="popup-arrows">
+                <button class="arrow-btn" id="prevPhoto">←</button>
+                <button class="arrow-btn" id="nextPhoto">→</button>
+              </div>
+            </div>
+
+            <div class="popup-right">
+              <p>
+                Canopy Las Ardillas es uno de los lugares más emocionantes de Timbío. 
+                Aquí puedes sentir la adrenalina al deslizarte entre los árboles, 
+                rodeado de naturaleza y hermosos paisajes.
+              </p>
+
+              <div class="popup-bottom">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63609.6822!2d-76.75!3d2.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2fe29b9b72b8ff%3A0xabcdef!2sCanopy%20Las%20Ardillas!5e0!3m2!1ses!2sco!4v0000000000000" allowfullscreen="" loading="lazy"></iframe>
+
+                <button class="popup-btn" onclick="window.open('https://www.canopylasardillas.com/', '_blank')">
+                  Página Oficial
+                </button>
+              </div>
+            </div>
+          </div>
+        `
+            });
+
+            // Navegación de fotos dentro del popup
+            document.addEventListener('click', function (e) {
+                if (e.target.id === "nextPhoto") {
+                    current = (current + 1) % photos.length;
+                    document.getElementById("popup-img").src = photos[current];
+                } else if (e.target.id === "prevPhoto") {
+                    current = (current - 1 + photos.length) % photos.length;
+                    document.getElementById("popup-img").src = photos[current];
+                }
+            });
+        }
+        document.addEventListener('click', e => {
+            if (e.target.id === "goBack") Swal.close();
+        });
+
+    </script>
+
+</body>
+
+</html>
